@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import javax.inject.Inject;
+
+import mobsoft.MobSoftApplication;
 import mobsoft.R;
 import mobsoft.model.Movie;
 
@@ -13,10 +16,14 @@ import mobsoft.model.Movie;
 
 public class DetailActivity extends AppCompatActivity implements DetailScreen {
 
+    @Inject
+    DetailPresenter detailPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MobSoftApplication.injector.inject(this);
     }
 
     @Override
