@@ -10,6 +10,4 @@ import mobsoft.model.Item;
 
 public interface MainScreen {
     void showItems(List<Item> items);
-
-    void showItems(List<Item> items);
 }
