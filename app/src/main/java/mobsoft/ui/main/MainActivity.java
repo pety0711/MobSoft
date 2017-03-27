@@ -2,12 +2,14 @@ package mobsoft.ui.main;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
 import mobsoft.MobSoftApplication;
 import mobsoft.R;
+import mobsoft.model.Item;
 
 public class MainActivity extends AppCompatActivity implements MainScreen{
 
@@ -35,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements MainScreen{
     }
 
     @Override
-    public void showMessage(String text) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    public void showItems(List<Item> items) {
+        //Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
 
 }

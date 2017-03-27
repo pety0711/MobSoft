@@ -1,4 +1,4 @@
-package mobsoft.ui.main;
+package mobsoft.ui.search;
 
 import java.util.List;
 
@@ -8,8 +8,6 @@ import mobsoft.model.Item;
  * Created by mobsoft on 2017. 03. 27..
  */
 
-public interface MainScreen {
-    void showItems(List<Item> items);
-
+public interface SearchScreen {
     void showItems(List<Item> items);
 }
