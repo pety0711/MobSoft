@@ -12,7 +12,7 @@ public class MainPresenter extends Presenter<MainScreen> {
 
     private static MainPresenter instance = null;
 
-    private MainPresenter() {
+    public  MainPresenter() {
     }
 
     public static MainPresenter getInstance() {
