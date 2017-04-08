@@ -32,4 +32,9 @@ public class FavouritesActivity extends AppCompatActivity implements FavouritesS
     public void showFavourites(List<Item> items) {
         Toast.makeText(this, "Favourites Screen", Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void navigateToDetail(Item item) {
+        Toast.makeText(this, "Show movie details", Toast.LENGTH_SHORT).show();
+    }
 }

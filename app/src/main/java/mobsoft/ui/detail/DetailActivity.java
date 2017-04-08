@@ -30,4 +30,9 @@ public class DetailActivity extends AppCompatActivity implements DetailScreen {
     public void showDetail(Movie movie) {
         Toast.makeText(this, "Movie Screen", Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void addToFavourites(Movie movie) {
+        Toast.makeText(this, "Add to favourites", Toast.LENGTH_SHORT).show();
+    }
 }

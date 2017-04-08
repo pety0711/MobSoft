@@ -8,4 +8,6 @@ import mobsoft.model.Movie;
 
 public interface DetailScreen {
     void showDetail(Movie movie);
+
+    void addToFavourites(Movie movie);
 }

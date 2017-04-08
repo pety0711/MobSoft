@@ -10,4 +10,6 @@ import mobsoft.model.Item;
 
 public interface FavouritesScreen {
     void showFavourites(List<Item> items);
+
+    void navigateToDetail(Item item);
 }

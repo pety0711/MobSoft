@@ -15,6 +15,8 @@ import mobsoft.R;
 
 public class LoginActivity extends AppCompatActivity implements LoginScreen {
 
+
+
     @Inject
     LoginPresenter loginPresenter;
 
@@ -28,5 +30,10 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
     @Override
     public void showMessage(String text) {
         Toast.makeText(this, "Login Screen", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void navigateToMain() {
+        Toast.makeText(this, "Go to main", Toast.LENGTH_SHORT).show();
     }
 }

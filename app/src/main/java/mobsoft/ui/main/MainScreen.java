@@ -10,4 +10,10 @@ import mobsoft.model.Item;
 
 public interface MainScreen {
     void showItems(List<Item> items);
+
+    void navigateToFavourites();
+
+    void navigateToDetail(Item item);
+
+    void search(String str);
 }

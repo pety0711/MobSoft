@@ -6,4 +6,6 @@ package mobsoft.ui.login;
 
 public interface LoginScreen {
     void showMessage(String text);
+
+    void navigateToMain();
 }
