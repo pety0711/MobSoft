@@ -2,6 +2,9 @@ package mobsoft;
 
 import android.app.Application;
 
+import javax.inject.Inject;
+
+import mobsoft.repository.Repository;
 import mobsoft.ui.UIModule;
 
 /**
@@ -10,7 +13,16 @@ import mobsoft.ui.UIModule;
 
 public class MobSoftApplication extends Application {
 
+    @Inject
+    Repository repository;
+
     public static MobSoftApplicationComponent injector;
+
+    public void setInjector(MobSoftApplicationComponent applicationComponent) {
+        injector = applicationComponent;
+        injector.inject(this);
+        repository.open(getApplicationContext());
+    }
 
     @Override
     public void onCreate() {
@@ -18,5 +30,7 @@ public class MobSoftApplication extends Application {
 
         injector = DaggerMobSoftApplicationComponent.builder().
                 uIModule(new UIModule(this)).build();
+        injector.inject(this);
+        repository.open(getApplicationContext());
     }
 }

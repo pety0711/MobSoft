@@ -1,17 +1,29 @@
 package mobsoft.model;
 
+import com.orm.dsl.Table;
+
 /**
  * Created by mobsoft on 2017. 03. 27..
  */
 
+@Table
 public class Item {
 
-    private int ID;
+    private Long id = null;
     private String title;
     private String imageURL;
+    private Long MovieID = null;
 
-    public int getID() {
-        return ID;
+    public Item() {}
+
+    public Item(Long id, String title, String imageURL) {
+        this.id = id;
+        this.title = title;
+        this.imageURL = imageURL;
+    }
+
+    public Long getID() {
+        return id;
     }
 
     public String getTitle() {
@@ -22,8 +34,8 @@ public class Item {
         return imageURL;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setID(Long ID) {
+        this.id = ID;
     }
 
     public void setTitle(String title) {
@@ -32,5 +44,13 @@ public class Item {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public Long getMovieID() {
+        return MovieID;
+    }
+
+    public void setMovieID(Long movieID) {
+        MovieID = movieID;
     }
 }

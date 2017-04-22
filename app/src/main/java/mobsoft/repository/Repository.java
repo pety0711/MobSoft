@@ -25,10 +25,6 @@ public interface Repository {
 
     Item getItemByID(int id);
 
-    List<Item> getFavouritesForUser(User user);
-
-    void addFavouriteToUser(User user, Item item);
-
     Movie getMovieByID(int id);
 
     List<User> getUsers();
@@ -40,5 +36,13 @@ public interface Repository {
     boolean isInDB(Movie movie);
 
     boolean isInDB(User user);
+
+    List<Item> getFavourites(User user);
+
+    void addFavourite(User user, Item item);
+
+    void updateFavourites(User user, List<Item> items);
+
+    void removeFavourite(User user, Item item);
 }
 
