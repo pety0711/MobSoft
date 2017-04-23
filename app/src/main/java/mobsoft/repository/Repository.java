@@ -19,13 +19,13 @@ public interface Repository {
 
     List<Item> getItemsAll();
 
-    List<Item> getItemsById(int[] ids);
+    List<Item> getItemsById(Long[] ids);
 
     List<Item> searchItemsByName(String name);
 
-    Item getItemByID(int id);
+    Item getItemByID(Long id);
 
-    Movie getMovieByID(int id);
+    Movie getMovieByID(Long id);
 
     List<User> getUsers();
 

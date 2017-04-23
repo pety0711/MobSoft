@@ -20,7 +20,7 @@ import mobsoft.repository.SugarOrmRepository;
 public class SearchInteractor {
 
     @Inject
-    private Repository repository;
+    Repository repository;
 
     @Inject
     EventBus bus;

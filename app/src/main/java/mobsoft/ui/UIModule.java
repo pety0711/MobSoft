@@ -2,10 +2,14 @@ package mobsoft.ui;
 
 import android.content.Context;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import de.greenrobot.event.EventBus;
 import mobsoft.ui.detail.DetailPresenter;
 import mobsoft.ui.favourites.FavouritesPresenter;
 import mobsoft.ui.login.LoginPresenter;
@@ -37,18 +41,30 @@ public class UIModule {
 
     @Provides
     @Singleton
-    public SearchPresenter provideSearchPresenter() {return SearchPresenter.getInstance();}
+    public SearchPresenter provideSearchPresenter() {return new SearchPresenter();}
 
     @Provides
     @Singleton
-    public LoginPresenter provideLoginPresenter() {return LoginPresenter.getInstance();}
+    public LoginPresenter provideLoginPresenter() {return new LoginPresenter();}
 
     @Provides
     @Singleton
-    public FavouritesPresenter provideFavouritesPresenter() {return FavouritesPresenter.getInstance();}
+    public FavouritesPresenter provideFavouritesPresenter() {return new FavouritesPresenter();}
 
     @Provides
     @Singleton
-    public DetailPresenter provideDetailPresenter() {return DetailPresenter.getInstance();}
+    public DetailPresenter provideDetailPresenter() {return new DetailPresenter();}
+
+    @Provides
+    @Singleton
+    public EventBus provideEventBus() {
+        return EventBus.getDefault();
+    }
+
+    @Provides
+    @Singleton
+    public Executor provideExecutor() {
+        return Executors.newFixedThreadPool(1);
+    }
 
 }

@@ -12,6 +12,7 @@ import mobsoft.interactor.favourites.event.GetFavouritesEvent;
 import mobsoft.interactor.favourites.event.RemoveFavouriteEvent;
 import mobsoft.interactor.favourites.event.SaveFavouriteEvent;
 import mobsoft.model.Item;
+import mobsoft.model.User;
 import mobsoft.repository.Repository;
 
 /**
@@ -26,6 +27,8 @@ public class FavouritesInteractor {
     @Inject
     EventBus bus;
 
+    private User user;
+
     public FavouritesInteractor() {
         MobSoftApplication.injector.inject(this);
     }
@@ -33,7 +36,7 @@ public class FavouritesInteractor {
     public void getFavourites() {
         GetFavouritesEvent event = new GetFavouritesEvent();
         try {
-            List<Item> items = repository.getFavourites();
+            List<Item> items = repository.getFavourites(user);
             event.setItems(items);
             bus.post(event);
         } catch (Exception e) {
@@ -47,7 +50,7 @@ public class FavouritesInteractor {
         SaveFavouriteEvent event = new SaveFavouriteEvent();
         event.setItem(item);
         try {
-            repository.addFavourite(item);
+            repository.addFavourite(user, item);
             bus.post(event);
         } catch (Exception e) {
             event.setThrowable(e);
@@ -57,7 +60,7 @@ public class FavouritesInteractor {
 
     public void updateFavourites(List<Item> items) {
         try {
-            repository.updateFavourites(items);
+            repository.updateFavourites(user, items);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -67,7 +70,7 @@ public class FavouritesInteractor {
         RemoveFavouriteEvent event = new RemoveFavouriteEvent();
         event.setItem(item);
         try {
-            repository.removeFavourite(item);
+            repository.removeFavourite(user, item);
             bus.post(event);
         } catch (Exception e) {
             event.setThrowable(e);

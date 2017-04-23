@@ -83,11 +83,11 @@ public class MemoryRepository implements Repository {
     }
 
     @Override
-    public List<Item> getItemsById(int[] ids) {
+    public List<Item> getItemsById(Long[] ids) {
         List<Item> result = new ArrayList<Item>();
         for (Item item :
                 items) {
-            for (int id :
+            for (Long id :
                     ids) {
                 if (item.getID() == id) {
                     result.add(item);
@@ -112,7 +112,7 @@ public class MemoryRepository implements Repository {
     }
 
     @Override
-    public Item getItemByID(int id) {
+    public Item getItemByID(Long id) {
         for (Item item :
                 items) {
             if (item.getID() == id) {
@@ -123,7 +123,7 @@ public class MemoryRepository implements Repository {
     }
 
     @Override
-    public Movie getMovieByID(int id) {
+    public Movie getMovieByID(Long id) {
         for (Movie movie: movies) {
             if (movie.getId() == id)
                 return movie;

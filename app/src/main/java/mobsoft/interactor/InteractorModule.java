@@ -6,6 +6,7 @@ import mobsoft.interactor.detail.DetailsInteractor;
 import mobsoft.interactor.favourites.FavouritesInteractor;
 import mobsoft.interactor.login.LoginInteractor;
 import mobsoft.interactor.search.SearchInteractor;
+import mobsoft.model.User;
 
 /**
  * Created by petys on 2017. 04. 21..

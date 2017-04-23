@@ -32,12 +32,12 @@ public class SugarOrmRepository implements Repository {
     }
 
     @Override
-    public List<Item> getItemsById(int[] ids) {
+    public List<Item> getItemsById(Long[] ids) {
         List<Item> items = SugarRecord.listAll(Item.class);
         List<Item> result = new ArrayList<Item>();
         for (Item item :
                 items) {
-            for (int id :
+            for (Long id :
                     ids) {
                 if (item.getID() == id) {
                     result.add(item);
@@ -54,13 +54,13 @@ public class SugarOrmRepository implements Repository {
     }
 
     @Override
-    public Item getItemByID(int id) {
-        return SugarRecord.find(Item.class, "id = ?", Integer.toString(id)).get(0);
+    public Item getItemByID(Long id) {
+        return SugarRecord.find(Item.class, "id = ?", Long.toString(id)).get(0);
     }
 
     @Override
-    public Movie getMovieByID(int id) {
-        return SugarRecord.find(Movie.class, "id = ?", Integer.toString(id)).get(0);
+    public Movie getMovieByID(Long id) {
+        return SugarRecord.find(Movie.class, "id = ?", Long.toString(id)).get(0);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class SugarOrmRepository implements Repository {
 
     @Override
     public void saveUser(User user) {
-        return;
+        SugarRecord.save(user);
     }
 
     @Override

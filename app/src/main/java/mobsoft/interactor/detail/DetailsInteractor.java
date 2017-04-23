@@ -9,6 +9,7 @@ import mobsoft.interactor.favourites.event.RemoveFavouriteEvent;
 import mobsoft.interactor.favourites.event.SaveFavouriteEvent;
 import mobsoft.model.Item;
 import mobsoft.model.Movie;
+import mobsoft.model.User;
 import mobsoft.repository.Repository;
 
 /**
@@ -23,15 +24,17 @@ public class DetailsInteractor {
     @Inject
     EventBus bus;
 
+    private User user;
+
     public DetailsInteractor() {
         MobSoftApplication.injector.inject(this);
     }
 
     public void GetMovie(Item item) {
-        GetMovie(item.getID());
+        GetMovie(item.getMovieID());
     }
 
-    public void GetMovie(int id) {
+    public void GetMovie(Long id) {
         GetMovieEvent event = new GetMovieEvent();
         try {
             Movie movie = repository.getMovieByID(id);
@@ -47,7 +50,7 @@ public class DetailsInteractor {
         SaveFavouriteEvent event = new SaveFavouriteEvent();
         event.setItem(item);
         try {
-            repository.addFavourite(item);
+            repository.addFavourite(user, item);
             bus.post(event);
         } catch (Exception e) {
             event.setThrowable(e);
@@ -59,7 +62,7 @@ public class DetailsInteractor {
         RemoveFavouriteEvent event = new RemoveFavouriteEvent();
         event.setItem(item);
         try {
-            repository.removeFavourite(item);
+            repository.removeFavourite(user, item);
             bus.post(event);
         } catch (Exception e) {
             event.setThrowable(e);

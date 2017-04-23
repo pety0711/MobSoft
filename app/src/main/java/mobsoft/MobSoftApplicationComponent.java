@@ -11,10 +11,15 @@ import mobsoft.network.NetworkModule;
 import mobsoft.repository.RepositoryModule;
 import mobsoft.ui.UIModule;
 import mobsoft.ui.detail.DetailActivity;
+import mobsoft.ui.detail.DetailPresenter;
 import mobsoft.ui.favourites.FavouritesActivity;
+import mobsoft.ui.favourites.FavouritesPresenter;
 import mobsoft.ui.login.LoginActivity;
+import mobsoft.ui.login.LoginPresenter;
 import mobsoft.ui.main.MainActivity;
+import mobsoft.ui.main.MainPresenter;
 import mobsoft.ui.search.SearchActivity;
+import mobsoft.ui.search.SearchPresenter;
 
 /**
  * Created by mobsoft on 2017. 03. 27..
@@ -41,4 +46,14 @@ public interface MobSoftApplicationComponent {
     void inject(FavouritesInteractor favouritesInteractor);
 
     void inject(DetailsInteractor detailsInteractor);
+
+    void inject(MainPresenter mainPresenter);
+
+    void inject(LoginPresenter loginPresenter);
+
+    void inject(FavouritesPresenter favouritesPresenter);
+
+    void inject(DetailPresenter detailPresenter);
+
+    void inject(SearchPresenter searchPresenter);
 }
