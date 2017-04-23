@@ -27,10 +27,20 @@ public class MovieViewerMock {
         if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "Favourite") && request.method().toLowerCase().equals("post")) {
             responseString = "";
             responseCode = 200;
-        }else if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "Item") && request.method().toLowerCase().equals("get")) {
+        }else if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "Favourite") && request.method().toLowerCase().equals("get")) {
+            MemoryRepository memoryRepository = new MemoryRepository();
+            memoryRepository.open(null);
+            responseString = GsonHelper.getGson().toJson(memoryRepository.getFavourites(memoryRepository.getUsers().get(0)));
+            responseCode = 200;
+        } else if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "Item") && request.method().toLowerCase().equals("get")) {
             MemoryRepository memoryRepository = new MemoryRepository();
             memoryRepository.open(null);
             responseString = GsonHelper.getGson().toJson(memoryRepository.getItemsAll());
+            responseCode = 200;
+        } else if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "Movie") && request.method().toLowerCase().equals("get")) {
+            MemoryRepository memoryRepository = new MemoryRepository();
+            memoryRepository.open(null);
+            responseString = GsonHelper.getGson().toJson(memoryRepository.getMovieByID(1L));
             responseCode = 200;
         } else {
             responseString = "ERROR";
